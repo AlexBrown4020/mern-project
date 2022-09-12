@@ -1,0 +1,7 @@
+**1: Installation**
+- Create your own .env file within the root directory
+- Assign your own environment variable to any name you want e.g. 'mongo = 'http://example-mongo-website.com'
+- Make sure to update the index.js connect function to use your name environment variable
+
+**2: HTTP Requests**
+- You can then test if your connection is successful, by using an Insomnia/Postman server to make HTTP requests.

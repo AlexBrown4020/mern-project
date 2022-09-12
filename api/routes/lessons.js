@@ -1,9 +1,17 @@
 import express from 'express';
+import Lesson from '../models/Lesson.js';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Hello, this is lessons endpoint');
+router.post('/', async (req, res) => {
+    const newLesson = new Lesson(req.body)
+
+    try {
+        const savedLesson = await newLesson.save();
+        res.status(200).json(savedLesson);
+    } catch(err) {
+        res.status(500).json(err);
+    }
 });
 
 export default router;

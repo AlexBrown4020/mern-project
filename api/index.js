@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import authRoute from './routes/auth.js';
+import lessonsRoute from './routes/lessons.js';
+import usersRoute from './routes/users.js';
 
 const app = express();
 
@@ -20,7 +22,9 @@ mongoose.connection.on('disconnected', () => {
     console.log('mongoDB disconnected');
 });
 
-app.use('/auth', authRoute)
+app.use('/auth', authRoute);
+app.use('/users', usersRoute);
+app.use('/lessons', lessonsRoute);
 
 app.listen(8000, () => {
     connect();

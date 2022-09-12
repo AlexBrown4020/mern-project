@@ -28,6 +28,17 @@ app.use('/auth', authRoute);
 app.use('/users', usersRoute);
 app.use('/lessons', lessonsRoute);
 
+app.use((err,req,res,next) => {
+    const errorStatus = err.status || 500;
+    const errorMessage = err.message || "Something went wrong, no error message found.";
+    return res.status(errorStatus).json({
+        success: false,
+        status: errorStatus,
+        message: errorMessage,
+        stack: err.stack,
+    });
+})
+
 app.listen(8000, () => {
     connect();
     console.log("Connected to backend");

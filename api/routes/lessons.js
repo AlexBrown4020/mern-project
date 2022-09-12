@@ -41,12 +41,12 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
     try {
         const lessons = await Lesson.find();
         res.status(200).json(lessons);
     } catch(err) {
-        res.status(500).json(err);
+        next(err)
     }
 });
 

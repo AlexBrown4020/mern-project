@@ -10,10 +10,6 @@ const LessonSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    time:{
-        type: Date,
-        required: true
-    },
     description:{
         type: String,
     },

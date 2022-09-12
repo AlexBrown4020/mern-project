@@ -1,0 +1,4 @@
+**1: Installation**
+- Create your own .env file within the root directory
+- Assign your own environment variable to any name you want e.g. 'mongo = 'http://example-mongo-website.com'
+- Make sure to update the index.js connect function to use your name environment variable

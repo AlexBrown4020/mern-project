@@ -15,6 +15,9 @@ const LessonSchema = new mongoose.Schema({
     },
     photos:{
         type:[String]
+    },
+    creatorId: {
+        type: String
     }
 });
 

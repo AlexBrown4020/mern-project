@@ -6,7 +6,7 @@ export const Navbar = () => {
             <div className='navContainer'>
                 <span className='logo'>Life In Balance</span>
                 <div className='navItems'>
-                    <button className='navButton'>Register</button>
+                    <button className='navButton'>Login</button>
                     <button className='navButton'>Register</button>
                 </div>
             </div>

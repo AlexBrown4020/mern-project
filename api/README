@@ -5,3 +5,7 @@
 
 **2: HTTP Requests**
 - You can then test if your connection is successful, by using an Insomnia/Postman server to make HTTP requests.
+
+**3: Technologies/Dependencies**
+- Server: mongoDB, mongoose
+- Backend: nodeJS, bcryptjs, dotenv, nodemon, express

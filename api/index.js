@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import authRoute from './routes/auth.js';
 import lessonsRoute from './routes/lessons.js';
 import usersRoute from './routes/users.js';
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -22,7 +23,8 @@ mongoose.connection.on('disconnected', () => {
     console.log('mongoDB disconnected');
 });
 
-app.use(express.json())
+app.use(express.json());
+app.use(cookieParser());
 
 app.use('/auth', authRoute);
 app.use('/users', usersRoute);

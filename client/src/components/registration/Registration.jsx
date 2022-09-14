@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import { Navbar } from '../navbar/Navbar';
 import './registration.css';
+import axios from 'axios';
 
 export const Registration = () => {
     const [name, setName]=useState('');
     const [email, setEmail]=useState('');
-    const [password, setPassword]=('');
+    const [password, setPassword]=useState('');
 
-    const submitData = () => {
-        console.log(name, email, password)
-    }
+    const submitData = async () => {
+        let result = await axios.fetch('http://localhost:8000/users/', {
+            method:'post',
+            body: JSON.stringify({
+                name, email, password
+            }),
+            headers: {
+                'Content-Type':'application/json'
+            }
+        });
+        result = await result.json();
+        console.log(result)
+    };
 
     return (
         <div>

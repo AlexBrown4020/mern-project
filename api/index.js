@@ -5,6 +5,7 @@ import authRoute from './routes/auth.js';
 import lessonsRoute from './routes/lessons.js';
 import usersRoute from './routes/users.js';
 import cookieParser from "cookie-parser";
+import cors from 'cors';
 
 const app = express();
 
@@ -25,6 +26,7 @@ mongoose.connection.on('disconnected', () => {
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 app.use('/auth', authRoute);
 app.use('/users', usersRoute);

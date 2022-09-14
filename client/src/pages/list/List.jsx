@@ -4,16 +4,16 @@ import './list.css';
 
 export const List = () => {
     const {data, loading, error} = useFetch('/lessons');
-    console.log(data)
+
     
     return (
         <div>
             {loading ? (
                 'Loading, please wait.'
                 ) : (
-                <div>
+                <div className='lessonList'>
                     {data.map(lesson => {
-                        return <div className='lessonContainer'>
+                        return <div key={lesson._id} className='lessonContainer'>
                                 <div className='lessonTitle'>
                                     <h2>{lesson.title}</h2>
                                 </div>
@@ -23,9 +23,9 @@ export const List = () => {
                                     <p>{lesson.description}</p>
                                 </div>
                             </div>
-                    })}
+                    })};
                 </div>
-                )}
+                )};
         </div>
     )
 };

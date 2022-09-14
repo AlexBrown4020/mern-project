@@ -8,7 +8,7 @@ export const List = () => {
     
     return (
         <div>
-            <h1>Lessons</h1>
+            <h2>Upcoming Lessons</h2>
             {loading ? (
                 'Loading, please wait.'
                 ) : (
@@ -16,7 +16,7 @@ export const List = () => {
                     {data.map(lesson => {
                         return <div key={lesson._id} className='lessonContainer'>
                                 <div className='lessonTitle'>
-                                    <h2>{lesson.title}</h2>
+                                    <h3>{lesson.title}</h3>
                                 </div>
                                 <div className='lessonContent'>
                                     <p>Date: {lesson.date.slice(0,10)}</p>

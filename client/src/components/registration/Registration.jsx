@@ -8,16 +8,18 @@ export const Registration = () => {
     const [password, setPassword]=useState('');
 
     const submitData = async () => {
-        let result = await fetch('http://localhost:8000/users', {
-            method:'post',
-            body: JSON.stringify({
-                username, email, password
-            }),
+            let result = await fetch('http://localhost:8000/users', {
+            method:'POST',
             headers: {
                 'Content-Type':'application/json'
-            }
+            },
+            body: {
+                username, email, password
+            },
+        }).then((response) => response.json())
+        .then((data) => {
+            console.log(data)
         });
-        result = await result.json();
         console.log(result)
     };
 

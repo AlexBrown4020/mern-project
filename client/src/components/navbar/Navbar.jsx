@@ -1,6 +1,6 @@
 import './navbar.css';
 import {useState} from 'react';
-import { Registration } from '../../pages/registration/Registration';
+import { Registration } from '../registration/Registration';
 
 export const Navbar = () => {
     const [isShown, setIsShown] = useState(false)

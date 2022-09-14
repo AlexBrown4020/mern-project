@@ -23,9 +23,9 @@ export const List = () => {
                                     <p>{lesson.description}</p>
                                 </div>
                             </div>
-                    })};
+                    })}
                 </div>
-                )};
+                )}
         </div>
     )
 };

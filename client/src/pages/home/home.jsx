@@ -6,7 +6,7 @@ export const Home = () => {
     return (
         <div>
             <Navbar/>
-            <div className='lisContainer'>
+            <div className='listContainer'>
                 <List />
             </div>
         </div>

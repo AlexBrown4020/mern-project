@@ -25,3 +25,11 @@
     cursor: pointer;
     color:rgb(44, 44, 145)
 }
+
+.navLink{
+    color:white;
+    padding: 5px;
+    margin: 5px;
+    border:2px solid white;
+    border-radius: 3px;
+}

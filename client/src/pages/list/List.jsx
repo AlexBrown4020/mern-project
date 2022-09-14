@@ -8,6 +8,7 @@ export const List = () => {
     
     return (
         <div>
+            <h1>Lessons</h1>
             {loading ? (
                 'Loading, please wait.'
                 ) : (

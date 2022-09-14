@@ -6,6 +6,7 @@ import {
 import { Home } from './pages/home/Home';
 import { List } from './pages/list/List';
 import { Lesson } from './pages/lesson/Lesson';
+import { Registration } from './pages/registration/Registration';
 
 function App() {
   return (

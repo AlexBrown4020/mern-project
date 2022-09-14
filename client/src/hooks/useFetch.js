@@ -11,12 +11,14 @@ const useFetch = (url) => {
             setLoading(true);
             try{
                 const response = await axios.get(url);
+                // console.log(response)
                 setData(response.data)
             } catch(err) {
                 setError(err);
             }
             setLoading(false);
         };
+        fetchData();
     }, [url]);
 
     const reFetch = async () => {

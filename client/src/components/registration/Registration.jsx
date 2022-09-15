@@ -20,8 +20,7 @@ export const Registration = () => {
             }
         });
         result = await result.json();
-        console.log(result)
-        navigate('/')
+        navigate('/');
     };
 
     return (

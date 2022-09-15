@@ -9,6 +9,7 @@ import { Lesson } from './pages/lesson/Lesson';
 import { Registration } from './components/registration/Registration';
 import { CreateLesson } from './components/create_lesson/CreateLesson';
 import { Private } from './components/private_components/Private';
+import { Login } from './components/login/Login';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/lessons' element={<List/>}/>
         <Route path='lessons/:id' element={<Lesson/>}/>
         <Route path='/register' element={<Registration/>}/>
+        <Route path='/login' element={<Login/>} />
         <Route element={<Private/>}>
           <Route path='/create_lesson' element={<CreateLesson/>}/>
         </Route>

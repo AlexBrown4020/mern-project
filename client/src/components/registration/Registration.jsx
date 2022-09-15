@@ -20,6 +20,7 @@ export const Registration = () => {
             }
         });
         result = await result.json();
+        localStorage.setItem('user', JSON.stringify(result))
         navigate('/');
     };
 

@@ -7,6 +7,7 @@ import { Home } from './pages/home/Home';
 import { List } from './pages/list/List';
 import { Lesson } from './pages/lesson/Lesson';
 import { Registration } from './components/registration/Registration';
+import { CreateLesson } from './components/create_lesson/CreateLesson';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/lessons' element={<List/>}/>
         <Route path='lessons/:id' element={<Lesson/>}/>
         <Route path='/register' element={<Registration/>}/>
+        <Route path='/create_lesson' element={<CreateLesson/>}/>
       </Routes>
     </BrowserRouter>
   );

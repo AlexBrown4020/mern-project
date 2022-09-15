@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Navbar } from '../navbar/Navbar';
 import './registration.css';
+import {  useNavigate } from 'react-router-dom';
 
 export const Registration = () => {
     const [username, setName]=useState('');
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
+    const navigate = useNavigate();
 
     const submitData = async () => {
         let result = await fetch('http://localhost:8000/users', {
             method:'post',
-            mode:'no-cors',
             body: JSON.stringify({
                 username, email, password
             }),
@@ -20,6 +21,7 @@ export const Registration = () => {
         });
         result = await result.json();
         console.log(result)
+        navigate('/')
     };
 
     return (

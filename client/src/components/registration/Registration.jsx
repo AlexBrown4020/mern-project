@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 import { Navbar } from '../navbar/Navbar';
 import './registration.css';
 import {  useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const Registration = () => {
     const [username, setName]=useState('');
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
     const navigate = useNavigate();
+    useEffect(() => {
+        const auth = localStorage.getItem('user');
+        if (auth) {
+            navigate('/')
+        }
+    });
 
     const submitData = async () => {
         let result = await fetch('http://localhost:8000/users', {

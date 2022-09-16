@@ -16,8 +16,12 @@ export const Navbar = () => {
                 <h1 className='logo'>Life In Balance</h1>
                 <ul className='navItems'>
                     <Link className='navLink' to={'/create_lesson'}>Create Lesson</Link>
-                    <Link className='navLink' to={'/login'}>Login</Link>
-                    {auth ? <Link className='navLink' onClick={logout} to='/'>Logout</Link> : <Link className='navLink'to={'/register'}>Register</Link>}
+                {   
+                    auth ? <Link className='navLink' onClick={logout} to='/'>Logout</Link> 
+                    : <>
+                        <Link className='navLink'to={'/register'}>Register</Link>
+                        <Link className='navLink' to={'/login'}>Login</Link>
+                    </>}
                 </ul>
             </div>
         </div>

@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from '../navbar/Navbar';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [email, setEmail] = useState('');
 const navigate = useNavigate();
+
+useEffect(() => {
+    const auth = localStorage.getItem('user');
+    if (auth) {
+        navigate('/')
+    }
+});
 
 const submitData = async () => {
     let result = await fetch('http://localhost:8000/auth/login', {

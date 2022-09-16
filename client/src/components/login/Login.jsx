@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Navbar } from '../navbar/Navbar';
-
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export const Login = () => {
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [email, setEmail] = useState('');
+const navgate = useNavigate();
 
 const submitData = async () => {
-    let result = await fetch('http://localhost:8000/users', {
+    let result = await fetch('http://localhost:8000/auth/login', {
         method:'post',
         body: JSON.stringify({
             username, email, password
@@ -18,8 +19,13 @@ const submitData = async () => {
         }
     });
     result = await result.json();
-    console.log(result)
-    localStorage.setItem('user', JSON.stringify(result))
+    if (result.username){
+        localStorage.setItem('user', JSON.stringify(result))
+        Navigate('/');
+    } else {
+        alert("Please enter correct details.")
+    }
+
 };
 
     return (

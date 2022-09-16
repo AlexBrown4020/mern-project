@@ -6,7 +6,7 @@ export const Login = () => {
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [email, setEmail] = useState('');
-const navgate = useNavigate();
+const navigate = useNavigate();
 
 const submitData = async () => {
     let result = await fetch('http://localhost:8000/auth/login', {
@@ -21,7 +21,7 @@ const submitData = async () => {
     result = await result.json();
     if (result.username){
         localStorage.setItem('user', JSON.stringify(result))
-        Navigate('/');
+        navigate('/');
     } else {
         alert("Please enter correct details.")
     }

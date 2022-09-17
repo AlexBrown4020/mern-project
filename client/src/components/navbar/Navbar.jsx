@@ -16,7 +16,9 @@ export const Navbar = () => {
             <div className='navContainer'>
                 <Link className='logo' to={'/'}>Life In Balance</Link>
                 <ul className='navItems'>
-                    <Link className='navLink' to={'/create_lesson'}>Create Lesson</Link>
+                { JSON.parse(auth).isAdmin ? <Link className='navLink' to={'/create_lesson'}>Create Lesson</Link> 
+                : <></>
+                }
 
                 {   
                     auth ? <Link className='navLink' onClick={logout} to='/'>Logout</Link> 

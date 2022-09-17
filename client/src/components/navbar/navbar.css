@@ -16,6 +16,10 @@
 
 .logo{
     font-weight: 500;
+    color:white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 40px;
 }
 
 .navButton{
@@ -24,4 +28,12 @@
     padding: 5px 10px;
     cursor: pointer;
     color:rgb(44, 44, 145)
+}
+
+.navLink{
+    color:white;
+    padding: 5px;
+    margin: 5px;
+    border:2px solid white;
+    border-radius: 3px;
 }

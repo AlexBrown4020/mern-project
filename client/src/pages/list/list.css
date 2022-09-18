@@ -5,16 +5,13 @@
 }
 
 .lessonContainer {
-    display: flex;
+    display: block;
     flex-direction: column;
-    height: 200px;
+    max-height:fit-content;
     width: 30%;
     max-width: 100%;
     padding: 5px;
     margin: 20px;
-    border-radius:3px;
-    background-color:rgb(255, 251, 251);
-    box-shadow: 1px 1px 2px gray;
 }
 
 .lessonTitle {
@@ -26,10 +23,28 @@
     display: flex;
 }
 
+.lessonContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.contentBlock {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
 .mainTitle {
-    padding: 10px;
+    padding: 2px;
 }
 
 .lessonText {
+    display: flex;
     font-size: large;
+}
+
+.lessonImg {
+    max-width: 250px;
+    max-height: 250px;
 }

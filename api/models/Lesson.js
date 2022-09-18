@@ -13,8 +13,8 @@ const LessonSchema = new mongoose.Schema({
     description:{
         type: String,
     },
-    photos:{
-        type:[String]
+    photo:{
+        type:String
     },
     creatorId: {
         type: String

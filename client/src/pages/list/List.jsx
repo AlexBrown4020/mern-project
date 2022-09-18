@@ -8,7 +8,9 @@ export const List = () => {
     
     return (
         <div>
-            <h2>Upcoming Lessons</h2>
+            <div className='mainTitleContainer'>
+                <h2 className='mainTitle'>Upcoming Lessons</h2>
+            </div>
             {loading ? (
                 'Loading, please wait.'
                 ) : (
@@ -19,9 +21,9 @@ export const List = () => {
                                     <h3>{lesson.title}</h3>
                                 </div>
                                 <div className='lessonContent'>
-                                    <p>Date: {lesson.date.slice(0,10)}</p>
-                                    <p>Time: {lesson.date.slice(11,19)}</p>
-                                    <p>{lesson.description}</p>
+                                    <p className='lessonText'>Date: {lesson.date.slice(0,10)}</p>
+                                    <p className='lessonText'>Time: {lesson.date.slice(11,19)}</p>
+                                    <p className='lessonText'>{lesson.description}</p>
                                 </div>
                             </div>
                     })}

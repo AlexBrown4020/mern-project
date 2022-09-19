@@ -1,5 +1,4 @@
 import './navbar.css';
-import {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
@@ -16,8 +15,12 @@ export const Navbar = () => {
             <div className='navContainer'>
                 <Link className='logo' to={'/'}>Life In Balance</Link>
                 <ul className='navItems'>
-                    <Link className='navLink' to={'/create_lesson'}>Create Lesson</Link>
 
+                { 
+                    auth && JSON.parse(auth).isAdmin ?  <Link className='navLink' to={'/create_lesson'}>Create Lesson</Link> 
+                    : <></>  
+                }
+                    
                 {   
                     auth ? <Link className='navLink' onClick={logout} to='/'>Logout</Link> 
                     : <>

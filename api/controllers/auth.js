@@ -13,6 +13,14 @@ export const register  = async (req, res, next) => {
             password: hash,
             email: req.body.email,
         });
+
+        const oldName = req.body.username;
+
+        const oldUser = await User.findOne({ oldName });
+        if (oldUser) {
+            return res.status(409).send('Username already exists, please try a new username.')
+        }
+
     await newUser.save();
     res.status(201).send('User created.');
 

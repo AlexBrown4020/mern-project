@@ -16,7 +16,7 @@ export const register  = async (req, res, next) => {
 
         const oldName = req.body.username;
 
-        const oldUser = await User.findOne({ oldName });
+        const oldUser = await User.findOne({ username: oldName });
         console.log(oldUser)
         if (oldUser.username === req.body.username) {
             return res.status(409).send('Username already exists, please try a new username.')

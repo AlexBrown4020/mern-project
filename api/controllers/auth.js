@@ -21,8 +21,21 @@ export const register  = async (req, res, next) => {
             return res.status(409).send('Username already exists, please try a new username.')
         }
 
-    await newUser.save();
-    res.status(201).send('User created.');
+        const token = jwt.sign(
+            {
+                _id: newUser._id,
+                email
+            },
+                process.env.TOKEN_KEY,
+            {
+                expiresIn: "2h"
+            }
+        );
+
+        newUser.token = token;
+
+        await newUser.save();
+        res.status(201).send('User created.');
 
     } catch(err) {
         next(err);

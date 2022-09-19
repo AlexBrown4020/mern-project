@@ -6,6 +6,7 @@ export const Login = () => {
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [email, setEmail] = useState('');
+
 const navigate = useNavigate();
 
 useEffect(() => {
@@ -26,9 +27,12 @@ const submitData = async () => {
         }
     });
     result = await result.json();
-    if (result.username){
+    console.log(result)
+    if (result.username && !result.isAdmin){
         localStorage.setItem('user', JSON.stringify(result))
         navigate('/');
+    } else if (result.username && result.isAdmin) {
+        console.log('Is admin')
     } else {
         alert("Please enter correct details.")
     }

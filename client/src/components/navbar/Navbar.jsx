@@ -2,13 +2,7 @@ import './navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
-    let auth = localStorage.getItem('user');
-    if (!auth) {
-        auth = {
-            isAdmin: false
-        }
-        console.log(auth)
-    }
+    const auth = localStorage.getItem('user');
 
     const navigate = useNavigate();
     const logout = () => {
@@ -23,13 +17,12 @@ export const Navbar = () => {
                 <ul className='navItems'>
 
                 { 
-                    !auth ?  <Link className='navLink' to={'/create_lesson'}>Create Lesson</Link> 
+                    auth && JSON.parse(auth).isAdmin ?  <Link className='navLink' to={'/create_lesson'}>Create Lesson</Link> 
                     : <></>  
                 }
                     
-
                 {   
-                    !auth ? <Link className='navLink' onClick={logout} to='/'>Logout</Link> 
+                    auth ? <Link className='navLink' onClick={logout} to='/'>Logout</Link> 
                     : <>
                         <Link className='navLink'to={'/register'}>Register</Link>
                         <Link className='navLink' to={'/login'}>Login</Link>

@@ -14,11 +14,10 @@ export const register  = async (req, res, next) => {
             email: req.body.email,
         });
 
-        const oldName = req.body.username;
+        const oldUsername = req.body.username;
 
-        const oldUser = await User.findOne({ username: oldName });
-        console.log(oldUser)
-        if (oldUser.username === req.body.username) {
+        const oldUser = await User.findOne({ username: oldUsername });
+        if (oldUser) {
             return res.status(409).send('Username already exists, please try a new username.')
         }
 
@@ -36,7 +35,7 @@ export const register  = async (req, res, next) => {
         newUser.token = token;
 
         await newUser.save();
-        res.status(201).send('User created.');
+        res.status(201).send(newUser);
 
     } catch(err) {
         next(err);

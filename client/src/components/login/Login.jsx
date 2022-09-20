@@ -28,12 +28,9 @@ const submitData = async () => {
     });
     result = await result.json();
     console.log(result)
-    if (result.username && !result.isAdmin){
+    if (result.username){
         localStorage.setItem('user', JSON.stringify(result))
         navigate('/');
-    } else if (result.username && result.isAdmin) {
-        localStorage.setItem('admin', JSON.stringify(result))
-        navigate('/')
     } else {
         alert("Please enter correct details.")
     }

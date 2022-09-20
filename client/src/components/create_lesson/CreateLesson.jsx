@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Navbar } from '../navbar/Navbar';
-import './createLesson.css';
+import '../registration/registration.css'
 
 export const CreateLesson = () => {
     const [title, setTitle] = useState('');
@@ -36,15 +36,17 @@ export const CreateLesson = () => {
     return (
         <div>
             <Navbar />
-            <div className='formContainer'>
-                <h2>Create a lesson</h2>
-                <input className='submissionInput' type='text' placeholder='Lesson title' 
-                        value={title} onChange={(e) => setTitle(e.target.value)}/>
-                    <input className='submissionInput' type='date' placeholder='Enter date' 
-                        value={date} onChange={(e) => setDate(e.target.value)}/>
-                    <input className='submissionInput' type='text' placeholder='Enter email' 
-                        value={description} onChange={(e) => setDescription(e.target.value)}/>
-                    <button onClick={submitData} className='submissionButton' type='button'>Submit</button>
+            <div className='registrationPage'>
+                <div className='formContainer'>
+                    <h2>Create a lesson</h2>
+                    <input className='submissionInput' type='text' placeholder='Lesson title' 
+                            value={title} onChange={(e) => setTitle(e.target.value)}/>
+                        <input className='submissionInput' type='date' placeholder='Enter date' 
+                            value={date} onChange={(e) => setDate(e.target.value)}/>
+                        <input className='submissionInput' type='text' placeholder='Enter email' 
+                            value={description} onChange={(e) => setDescription(e.target.value)}/>
+                        <button onClick={submitData} className='submissionButton' type='button'>Submit</button>
+                </div>
             </div>
         </div>
 

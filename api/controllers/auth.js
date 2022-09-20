@@ -13,29 +13,8 @@ export const register  = async (req, res, next) => {
             password: hash,
             email: req.body.email,
         });
-
-        const oldUsername = req.body.username;
-
-        const oldUser = await User.findOne({ username: oldUsername });
-        if (oldUser) {
-            return res.status(409).send('Username already exists, please try a new username.')
-        }
-
-        const token = jwt.sign(
-            {
-                _id: newUser._id,
-                email: newUser.email,
-            },
-                process.env.TOKEN_KEY,
-            {
-                expiresIn: "2h"
-            }
-        );
-
-        newUser.token = token;
-
-        await newUser.save();
-        res.status(201).send(newUser);
+    await newUser.save();
+    res.status(201).send('User created.');
 
     } catch(err) {
         next(err);

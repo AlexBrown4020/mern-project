@@ -43,7 +43,7 @@ export const CreateLesson = () => {
                             value={title} onChange={(e) => setTitle(e.target.value)}/>
                         <input className='submissionInput' type='date' placeholder='Enter date' 
                             value={date} onChange={(e) => setDate(e.target.value)}/>
-                        <input className='submissionInput' type='text' placeholder='Enter email' 
+                        <input className='submissionInput' type='text' placeholder='Enter description' 
                             value={description} onChange={(e) => setDescription(e.target.value)}/>
                         <button onClick={submitData} className='submissionButton' type='button'>Submit</button>
                 </div>

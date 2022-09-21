@@ -1,7 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
+
 import { Navbar } from '../../components/navbar/Navbar';
 import useFetch from '../../hooks/useFetch';
+import '../list/list.css';
 
 export const Lesson = () => {
   const param = useParams();
@@ -10,6 +12,7 @@ export const Lesson = () => {
   return (
     <div>
       <Navbar/>
+      <div className='lessonList'>
       { loading ? (
         'Loading, please wait'
       ) : (
@@ -22,8 +25,16 @@ export const Lesson = () => {
         </h2>
         <div className='lessonContent'>
             <div className='contentBlock'>
-                <p className='lessonText'>When: </p> 
-                <p>{data.date}</p>
+                <p className='lessonText'>Day: </p> 
+                {
+                  data.date === undefined ? <p>Loading date...</p> : <p>{data.date.slice(0,10)}</p>
+                }
+            </div>
+            <div className='contentBlock'>
+                <p className='lessonText'>Time: </p> 
+                {
+                  data.date === undefined ? <p>Loading date...</p> : <p>{data.date.slice(11,19)}</p>
+                }
             </div>
             <div className='contentBlock'>
                 <p className='lessonText'>Description: </p> 
@@ -32,6 +43,6 @@ export const Lesson = () => {
         </div>
       </div>
       )}
-
+      </div>
     </div>
   )};

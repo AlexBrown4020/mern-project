@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { Navbar } from '../../components/navbar/Navbar';
 import useFetch from '../../hooks/useFetch';
@@ -10,6 +10,15 @@ export const Lesson = () => {
   const param = useParams();
   const {data, loading, error} = useFetch(`/lessons/${param.id}`);
   const auth = localStorage.getItem('user');
+  const navigate = useNavigate;
+
+  const deleteLesson = async () => {
+    await fetch(`http://localhost:8000/lessons/${param.id}`, {
+        method:'delete',
+    }).then(
+      navigate('/')
+    )
+};
 
   return (
     <div>
@@ -44,9 +53,9 @@ export const Lesson = () => {
         </div>
       )}
       { 
-        auth && JSON.parse(auth).isAdmin ?       
+        JSON.parse(auth).isAdmin ?       
           <div className='lessonManipulate'>       
-            <button className='lessonButton'>Delete lesson</button>
+            <button className='lessonButton' onClick={deleteLesson}>Delete lesson</button>
             <button className='lessonButton'>Edit lesson</button>
             <button className='lessonButton'>Join lesson</button>
           </div>

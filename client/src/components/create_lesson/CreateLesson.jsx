@@ -29,7 +29,7 @@ export const CreateLesson = () => {
             }
         });
         result = await result.json();
-        localStorage.setItem('user', JSON.stringify(result))
+        localStorage.setItem('lesson', JSON.stringify(result))
         navigate('/');
     };
 

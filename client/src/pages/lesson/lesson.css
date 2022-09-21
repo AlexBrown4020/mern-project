@@ -10,7 +10,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    
 }
 
 .lessonButton {
@@ -21,4 +20,6 @@
     color:black;
     border: 2px solid gray;
     border-radius: 5px;
+    max-height: 50px;
+    min-height: 30px;
 }

@@ -1,4 +1,4 @@
-.mainContainer{
+.mainContainer {
     display: flex;
     justify-content: space-around;
     border-radius: 2px;
@@ -6,3 +6,19 @@
     flex-direction: row;
 }
 
+.lessonManipulate {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.lessonButton {
+    border: none;
+    padding: 5px 10px;
+    margin: 10px;
+    cursor: pointer;
+    color:black;
+    border: 2px solid gray;
+    border-radius: 5px;
+}

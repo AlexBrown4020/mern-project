@@ -46,10 +46,11 @@ export const Lesson = () => {
       { 
         auth && JSON.parse(auth).isAdmin ?       
           <div className='lessonManipulate'>       
-            <button>Delete lesson</button>
-            <button>Edit lesson</button>
+            <button className='lessonButton'>Delete lesson</button>
+            <button className='lessonButton'>Edit lesson</button>
+            <button className='lessonButton'>Join lesson</button>
           </div>
-          : <></>  
+          : <button className='lessonButton'>Join lesson</button>
 
       }
       </div>

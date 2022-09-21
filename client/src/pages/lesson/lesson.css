@@ -1,0 +1,7 @@
+.mainContainer{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 2px;
+    background-color: whitesmoke;
+    flex-direction: row;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 import { Navbar } from '../../components/navbar/Navbar';
 import useFetch from '../../hooks/useFetch';
@@ -59,11 +59,10 @@ export const Lesson = () => {
         JSON.parse(auth).isAdmin ?       
           <div className='lessonManipulate'>       
             <button className='lessonButton' onClick={()=>deleteLesson(data._id)}>Delete lesson</button>
-            <button className='lessonButton'>Edit lesson</button>
+            <Link className='lessonButton' to={`update`}> Update Lesson </Link> 
             <button className='lessonButton'>Join lesson</button>
           </div>
           : <button className='lessonButton'>Join lesson</button>
-
       }
       </div>
     </div>

@@ -9,6 +9,7 @@ import './lesson.css';
 export const Lesson = () => {
   const param = useParams();
   const {data, loading, error} = useFetch(`/lessons/${param.id}`);
+  const auth = localStorage.getItem('user');
 
   return (
     <div>
@@ -42,6 +43,15 @@ export const Lesson = () => {
           </div>
         </div>
       )}
+      { 
+        auth && JSON.parse(auth).isAdmin ?       
+          <div className='lessonManipulate'>       
+            <button>Delete lesson</button>
+            <button>Edit lesson</button>
+          </div>
+          : <></>  
+
+      }
       </div>
     </div>
   )};

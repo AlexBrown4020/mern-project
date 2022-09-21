@@ -10,7 +10,7 @@ import { Registration } from './components/registration/Registration';
 import { CreateLesson } from './components/create_lesson/CreateLesson';
 import { Private } from './components/private_components/Private';
 import { Login } from './components/login/Login';
-import { Update } from './components/update_lesson/Update';
+import { UpdateLesson } from './components/update_lesson/Update';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path='lessons/:id' element={<Lesson/>}/>
         <Route path='/register' element={<Registration/>}/>
         <Route path='/login' element={<Login/>} />
-        <Route path='lessons/:id/update' element={<Update/>} />
+        <Route path='lessons/:id/update' element={<UpdateLesson/>} />
         <Route element={<Private/>}>
           <Route path='/create_lesson' element={<CreateLesson/>}/>
         </Route>

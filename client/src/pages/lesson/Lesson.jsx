@@ -12,13 +12,16 @@ export const Lesson = () => {
   const auth = localStorage.getItem('user');
   const navigate = useNavigate;
 
-  const deleteLesson = async () => {
-    await fetch(`http://localhost:8000/lessons/${param.id}`, {
-        method:'delete',
-    }).then(
-      navigate('/')
-    )
-};
+  const deleteLesson = async (id) => {
+    let lesson = await fetch(`http://localhost:3000/lessons/${id}`, {
+      method: 'delete'
+    });
+    lesson = await lesson.json();
+    if (lesson) {
+      alert('Lesson deleted');
+      navigate('/');
+    }
+  };
 
   return (
     <div>
@@ -55,7 +58,7 @@ export const Lesson = () => {
       { 
         JSON.parse(auth).isAdmin ?       
           <div className='lessonManipulate'>       
-            <button className='lessonButton' onClick={deleteLesson}>Delete lesson</button>
+            <button className='lessonButton' onClick={()=>deleteLesson(data._id)}>Delete lesson</button>
             <button className='lessonButton'>Edit lesson</button>
             <button className='lessonButton'>Join lesson</button>
           </div>

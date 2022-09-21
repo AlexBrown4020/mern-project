@@ -10,7 +10,7 @@ export const Lesson = () => {
   const param = useParams();
   const {data, loading, error} = useFetch(`/lessons/${param.id}`);
   const auth = localStorage.getItem('user');
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const deleteLesson = async (id) => {
     let lesson = await fetch(`http://localhost:3000/lessons/${id}`, {

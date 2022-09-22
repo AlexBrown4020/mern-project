@@ -31,11 +31,11 @@ export const UpdateLesson = () => {
                 'Content-Type':'application/json'
             }
         });
+        result = await result.json();
         console.log(result)
-        if (!result.body.title) {
-            console.log('Need a title')
+        if (!result.title === '' || !result.date) {
+            alert('Title and date cannot be blank')
         } else {
-            result = await result.json();
             localStorage.setItem('lesson', JSON.stringify(result))
             navigate('/');
         }

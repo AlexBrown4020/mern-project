@@ -32,7 +32,6 @@ export const UpdateLesson = () => {
             }
         });
         result = await result.json();
-        console.log(result)
         if (!result.title === '' || !result.date) {
             alert('Title and date cannot be blank')
         } else {

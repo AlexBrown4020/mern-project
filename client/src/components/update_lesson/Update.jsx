@@ -1,15 +1,18 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Navbar } from '../navbar/Navbar';
 import '../registration/registration.css'
+import useFetch from '../../hooks/useFetch';
 
-export const CreateLesson = () => {
+export const UpdateLesson = () => {
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
     const navigate = useNavigate();
+    const param = useParams();
+    const {data, loading, error} = useFetch(`/lessons/${param.id}`);
     
     useEffect(() => {
         const auth = localStorage.getItem('user');
@@ -18,9 +21,9 @@ export const CreateLesson = () => {
         }
     });
 
-    const submitData = async () => {
-        let result = await fetch('http://localhost:8000/lessons', {
-            method:'post',
+    const submitData = async (props) => {
+        let result = await fetch(`http://localhost:8000/lessons/${param.id}`, {
+            method:'put',
             body: JSON.stringify({
                 title, date, description
             }),
@@ -32,13 +35,12 @@ export const CreateLesson = () => {
         localStorage.setItem('lesson', JSON.stringify(result))
         navigate('/');
     };
-
     return (
         <div>
             <Navbar />
             <div className='registrationPage'>
                 <div className='formContainer'>
-                    <h2>Create a lesson</h2>
+                    <h2>Update Lesson</h2>
                     <input className='submissionInput' type='text' placeholder='Lesson title' 
                             value={title} onChange={(e) => setTitle(e.target.value)}/>
                         <input className='submissionInput' type='date' placeholder='Enter date' 
@@ -49,6 +51,5 @@ export const CreateLesson = () => {
                 </div>
             </div>
         </div>
-
     )
 }

@@ -31,9 +31,15 @@ export const UpdateLesson = () => {
                 'Content-Type':'application/json'
             }
         });
-        result = await result.json();
-        localStorage.setItem('lesson', JSON.stringify(result))
-        navigate('/');
+        console.log(result)
+        if (!result.body.title) {
+            console.log('Need a title')
+        } else {
+            result = await result.json();
+            localStorage.setItem('lesson', JSON.stringify(result))
+            navigate('/');
+        }
+
     };
     return (
         <div>

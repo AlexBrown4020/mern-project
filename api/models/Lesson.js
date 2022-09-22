@@ -14,10 +14,11 @@ const LessonSchema = new mongoose.Schema({
         type: String,
     },
     photo:{
-        type:String
+        type: String
     },
-    creatorId: {
-        type: Object
+    creator: {
+        type: String,
+        required: true
     }
 });
 

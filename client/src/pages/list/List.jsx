@@ -37,6 +37,10 @@ export const List = () => {
                                     <p className='lessonText'>Description: </p> 
                                     <p>{lesson.description}</p>
                                 </div>
+                                <div className='contentBlock'>
+                                    <p className='lessonText'>Teacher: </p> 
+                                    <p>{lesson.creator}</p>
+                                </div>
                             </div>
                         </div>
                     })}

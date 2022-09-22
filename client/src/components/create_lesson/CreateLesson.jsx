@@ -9,12 +9,13 @@ export const CreateLesson = () => {
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
-    const [creator, setCreator] = useState();
     const navigate = useNavigate();
-    const auth = localStorage.getItem('user');
-    
+    const user = localStorage.getItem('user');
+    let creator = JSON.parse(user);
+    creator = creator.username;
+
     useEffect(() => {
-        if (!JSON.parse(auth).isAdmin) {
+        if (!JSON.parse(user).isAdmin) {
             navigate('/')
         }
     });
@@ -23,19 +24,19 @@ export const CreateLesson = () => {
         let result = await fetch('http://localhost:8000/lessons', {
             method:'post',
             body: JSON.stringify({
-                title, date, description
+                title, date, description, creator
             }),
             headers: {
                 'Content-Type':'application/json'
             }
         });
         result = await result.json();
-        result.creator = auth;
-        console.log(result)
+        
         if (result.success === false) {
             alert('Title and date are required');
         } else {
             localStorage.setItem('lesson', JSON.stringify(result));
+            console.log(result)
             navigate('/');
         }
     };

@@ -29,8 +29,12 @@ export const CreateLesson = () => {
             }
         });
         result = await result.json();
-        localStorage.setItem('lesson', JSON.stringify(result))
-        navigate('/');
+        if (result.success === false) {
+            alert('Title and date are required');
+        } else {
+            localStorage.setItem('lesson', JSON.stringify(result));
+            navigate('/');
+        }
     };
 
     return (

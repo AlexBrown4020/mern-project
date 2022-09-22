@@ -32,8 +32,13 @@ export const UpdateLesson = () => {
             }
         });
         result = await result.json();
-        localStorage.setItem('lesson', JSON.stringify(result))
-        navigate('/');
+        if (!result.title === '' || !result.date) {
+            alert('Title and date cannot be blank')
+        } else {
+            localStorage.setItem('lesson', JSON.stringify(result))
+            navigate('/');
+        }
+
     };
     return (
         <div>

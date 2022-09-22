@@ -9,10 +9,11 @@ export const CreateLesson = () => {
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
+    const [creator, setCreator] = useState();
     const navigate = useNavigate();
+    const auth = localStorage.getItem('user');
     
     useEffect(() => {
-        const auth = localStorage.getItem('user');
         if (!JSON.parse(auth).isAdmin) {
             navigate('/')
         }
@@ -29,6 +30,8 @@ export const CreateLesson = () => {
             }
         });
         result = await result.json();
+        result.creator = auth;
+        console.log(result)
         if (result.success === false) {
             alert('Title and date are required');
         } else {

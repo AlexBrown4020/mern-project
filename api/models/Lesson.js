@@ -17,7 +17,7 @@ const LessonSchema = new mongoose.Schema({
         type:String
     },
     creatorId: {
-        type: String
+        type: Object
     }
 });
 

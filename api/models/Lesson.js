@@ -20,7 +20,7 @@ const LessonSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    participants: [{username: String}]
+    participants: [String]
 });
 
 export default mongoose.model('Lesson', LessonSchema);

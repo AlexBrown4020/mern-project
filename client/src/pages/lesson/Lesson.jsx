@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
 import { Navbar } from '../../components/navbar/Navbar';
@@ -9,6 +9,7 @@ import './lesson.css';
 export const Lesson = () => {
   const param = useParams();
   const {data, loading, error} = useFetch(`/lessons/${param.id}`);
+  const [participants, setParticipantsList] = useState([]);
   const auth = localStorage.getItem('user');
   const navigate = useNavigate();
 
@@ -22,6 +23,21 @@ export const Lesson = () => {
       navigate('/');
     }
   };
+
+  const handleJoin = async (id) => {
+    const username = JSON.parse(auth).username
+    let result = await fetch(`http://localhost:8000/lessons/${id}`, {
+      method:'put',
+      body: JSON.stringify({
+        participants: [...participants, username]
+      }),
+      headers: {
+          'Content-Type':'application/json'
+      }
+    });
+    result = await result.json();
+    localStorage.setItem('lesson', JSON.stringify(result))
+  }
 
   return (
     <div>
@@ -56,6 +72,10 @@ export const Lesson = () => {
                   <p className='lessonText'>Teacher: </p> 
                   <p>{data.creator}</p>
               </div>
+              <div className='contentBlock'>
+                  <p className='lessonText'>Participants: </p> 
+                  <p>{data.participants}</p>
+              </div>
           </div>
         </div>
       )}
@@ -64,9 +84,9 @@ export const Lesson = () => {
           <div className='lessonManipulate'>       
             <button className='lessonButton' onClick={()=>deleteLesson(data._id)}>Delete lesson</button>
             <Link className='lessonButton' to={`update`}> Update Lesson </Link> 
-            <button className='lessonButton'>Join lesson</button>
+            <button onClick={() =>handleJoin(data._id, auth.username)} className='lessonButton'>Join lesson</button>
           </div>
-          : <button className='lessonButton'>Join lesson</button>
+          : <button onClick={() =>handleJoin(data._id, auth.username)} className='lessonButton'>Join lesson</button>
       }
       </div>
     </div>

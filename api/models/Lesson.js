@@ -19,7 +19,8 @@ const LessonSchema = new mongoose.Schema({
     creator: {
         type: String,
         required: true
-    }
+    },
+    participants: [{username: String}]
 });
 
 export default mongoose.model('Lesson', LessonSchema);

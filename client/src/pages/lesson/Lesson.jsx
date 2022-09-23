@@ -52,6 +52,10 @@ export const Lesson = () => {
                   <p className='lessonText'>Description: </p> 
                   <p>{data.description}</p>
               </div>
+              <div className='contentBlock'>
+                  <p className='lessonText'>Teacher: </p> 
+                  <p>{data.creator}</p>
+              </div>
           </div>
         </div>
       )}

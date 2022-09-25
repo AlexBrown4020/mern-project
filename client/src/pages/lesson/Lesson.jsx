@@ -26,17 +26,30 @@ export const Lesson = () => {
 
   const handleJoin = async (id) => {
     const username = JSON.parse(auth).username
-    let result = await fetch(`http://localhost:8000/lessons/${id}`, {
-      method:'put',
-      body: JSON.stringify({
-        participants: [...participants, username]
+    const prevParticipants = data.participants;
+    let result = await fetch(`http://localhost:8000/lessons/${id}`)
+    if (prevParticipants.includes(username)) {
+      result = await fetch(`http://localhost:8000/lessons/${id}`, {
+        method: 'put',
+        body: JSON.stringify({
+          participants: [...prevParticipants].filter(el => el !== username)
       }),
       headers: {
           'Content-Type':'application/json'
       }
-    });
-    result = await result.json();
-    localStorage.setItem('lesson', JSON.stringify(result))
+      })
+    } else {
+      result = await fetch(`http://localhost:8000/lessons/${id}`, {
+        method: 'put',
+        body: JSON.stringify({
+          participants: [...prevParticipants, username]
+      }),
+      headers: {
+          'Content-Type':'application/json'
+      }
+      })
+    }
+    localStorage.setItem('lesson', JSON.stringify(result));
   }
 
   return (

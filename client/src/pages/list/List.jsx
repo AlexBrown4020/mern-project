@@ -41,6 +41,12 @@ export const List = () => {
                                     <p className='lessonText'>Teacher: </p> 
                                     <p>{lesson.creator}</p>
                                 </div>
+                                <div className='contentBlock'>
+                                    <p className='lessonText'>Paticipants: </p> 
+                                    {lesson.participants.map(el => {
+                                        return <p>{el}</p>
+                                    })}
+                                </div>
                             </div>
                         </div>
                     })}

@@ -38,6 +38,8 @@ export const Lesson = () => {
           'Content-Type':'application/json'
       }
       })
+      alert('Left lesson');
+      navigate('/')
     } else {
       result = await fetch(`http://localhost:8000/lessons/${id}`, {
         method: 'put',
@@ -48,6 +50,8 @@ export const Lesson = () => {
           'Content-Type':'application/json'
       }
       })
+      alert('Successfully joined lesson');
+      navigate('/')
     }
     localStorage.setItem('lesson', JSON.stringify(result));
   }
@@ -84,10 +88,6 @@ export const Lesson = () => {
               <div className='contentBlock'>
                   <p className='lessonText'>Teacher: </p> 
                   <p>{data.creator}</p>
-              </div>
-              <div className='contentBlock'>
-                  <p className='lessonText'>Participants: </p> 
-                  <p>{data.participants}</p>
               </div>
           </div>
         </div>

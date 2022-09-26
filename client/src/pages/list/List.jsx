@@ -10,7 +10,12 @@ export const List = () => {
     return (
         <div>
             <div className='mainBanner'>
-
+                <div className='bannerDescription'>
+                    <h2 className='bannerTitle' >Welcome to Life in Balance!</h2>
+                    <p className='bannerContent' >Looking for a class in Yoga? body balance? Tai-chi? Pilates? With over 400 registered teachers on our platform, you can find any class you like!</p>
+                    <p className='bannerContent'>Have a look at our list of classes below, join up, and look out for the session details in your email</p>
+                </div>
+                <img className='bannerImg' src='https://media.self.com/photos/587e8bc713e257b344659432/master/w_960,c_limit/sky-ting-yoga-downward-dog-pose.jpg'/>
             </div>
             <div className='mainTitleContainer'>
                 <h2 className='mainTitle'>Upcoming Lessons</h2>

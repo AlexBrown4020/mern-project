@@ -41,6 +41,35 @@
 .mainTitle {
     padding: 2px;
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(44, 44, 145)
+}
+
+.mainBanner {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(204, 228, 253);
+    justify-content: space-around;
+}
+
+.bannerTitle {
+    font-size:xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(44, 44, 145)
+}
+
+.bannerContent {
+    font-size: large;
+}
+
+.bannerImg {
+    max-height: 300px;
+    margin: 20px;
+    border: white 10px solid;
+}
+
+.bannerDescription {
+    padding: 20px;
+    max-width: 30%;
 }
 
 .lessonTitle {

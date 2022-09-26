@@ -13,6 +13,7 @@ export const Navbar = () => {
     return (
         <div className='navbar'>
             <div className='navContainer'>
+                <img className='logoImg' src="https://iili.io/s8B7O7.jpg" alt="Life in balance logo" />
                 <Link className='logo' to={'/'}>Life In Balance</Link>
                 <ul className='navItems'>
 

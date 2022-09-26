@@ -10,7 +10,6 @@ import './lesson.css';
 export const Lesson = () => {
   const param = useParams();
   const {data, loading, error} = useFetch(`/lessons/${param.id}`);
-  const [participants, setParticipantsList] = useState([]);
   const auth = localStorage.getItem('user');
   const navigate = useNavigate();
 

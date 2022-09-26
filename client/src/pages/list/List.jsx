@@ -21,7 +21,7 @@ export const List = () => {
                             <div >
                                 <img alt='default placehodler of group stretching' className='lessonImg' src='https://i0.wp.com/www.yogabasics.com/yogabasics2017/wp-content/uploads/2014/12/gentle-yoga-class.jpeg?w=1080&ssl=1'></img>
                             </div>
-                            <Link to={`/lessons/${lesson._id}`} >
+                            <Link className='lessonTitle' to={`/lessons/${lesson._id}`} >
                                 {lesson.title}
                             </Link>
                             <div className='lessonContent'>

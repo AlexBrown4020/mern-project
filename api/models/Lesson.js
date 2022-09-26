@@ -14,11 +14,13 @@ const LessonSchema = new mongoose.Schema({
         type: String,
     },
     photo:{
-        type:String
-    },
-    creatorId: {
         type: String
-    }
+    },
+    creator: {
+        type: String,
+        required: true
+    },
+    participants: [String]
 });
 
 export default mongoose.model('Lesson', LessonSchema);

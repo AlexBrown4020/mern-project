@@ -10,10 +10,12 @@ export const CreateLesson = () => {
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
     const navigate = useNavigate();
-    
+    const user = localStorage.getItem('user');
+    let creator = JSON.parse(user);
+    creator = creator.username;
+
     useEffect(() => {
-        const auth = localStorage.getItem('user');
-        if (!JSON.parse(auth).isAdmin) {
+        if (!JSON.parse(user).isAdmin) {
             navigate('/')
         }
     });
@@ -22,17 +24,19 @@ export const CreateLesson = () => {
         let result = await fetch('http://localhost:8000/lessons', {
             method:'post',
             body: JSON.stringify({
-                title, date, description
+                title, date, description, creator
             }),
             headers: {
                 'Content-Type':'application/json'
             }
         });
         result = await result.json();
+        
         if (result.success === false) {
             alert('Title and date are required');
         } else {
             localStorage.setItem('lesson', JSON.stringify(result));
+            console.log(result)
             navigate('/');
         }
     };

@@ -1,5 +1,5 @@
 **1: Technologies/Software**
-- Frontend: React, react-router-dom
+- Frontend: React, react-router-dom, axios
 
 # Getting Started with Create React App
 

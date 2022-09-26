@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '../navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
+import { Footer } from '../footer/Footer';
 
 export const Login = () => {
 const [username, setUsername] = useState('');
@@ -51,6 +52,7 @@ const submitData = async () => {
                     <button onClick={submitData} className='submissionButton' type='button'>Login</button>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 };

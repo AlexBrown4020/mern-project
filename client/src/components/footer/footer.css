@@ -1,0 +1,11 @@
+.footer {
+    background-color: rgb(225, 235, 246);
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.creatorDetails {
+    opacity: 60%;
+    color:blue
+}

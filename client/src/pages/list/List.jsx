@@ -44,7 +44,7 @@ export const List = () => {
                                 <div className='contentBlock'>
                                     <p className='lessonText'>Paticipants: </p> 
                                     {lesson.participants.map(el => {
-                                        return <p>{el}</p>
+                                        return <p key={el} >{el}</p>
                                     })}
                                 </div>
                             </div>

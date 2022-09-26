@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { Footer } from '../../components/footer/Footer';
 
 import { Navbar } from '../../components/navbar/Navbar';
 import useFetch from '../../hooks/useFetch';
@@ -96,5 +97,6 @@ export const Lesson = () => {
           : <button onClick={() =>handleJoin(data._id, auth.username)} className='lessonButton'>Join lesson</button>
       }
       </div>
+      <Footer />
     </div>
   )};

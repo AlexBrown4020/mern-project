@@ -3,6 +3,7 @@ import { Navbar } from '../navbar/Navbar';
 import './registration.css';
 import {  useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Footer } from '../footer/Footer';
 
 export const Registration = () => {
     const [username, setName]=useState('');
@@ -46,6 +47,7 @@ export const Registration = () => {
                     <button onClick={submitData} className='submissionButton' type='button'>Submit</button>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 };

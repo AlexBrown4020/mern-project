@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Navbar } from '../navbar/Navbar';
 import '../registration/registration.css'
+import { Footer } from '../footer/Footer';
 
 export const CreateLesson = () => {
     const [title, setTitle] = useState('');
@@ -56,6 +57,7 @@ export const CreateLesson = () => {
                         <button onClick={submitData} className='submissionButton' type='button'>Submit</button>
                 </div>
             </div>
+            <Footer />
         </div>
 
     )

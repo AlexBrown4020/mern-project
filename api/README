@@ -9,4 +9,4 @@
 
 **3: Technologies/Dependencies**
 - Server: mongoDB, mongoose
-- Backend: nodeJS, bcryptjs, dotenv, nodemon, express, jwt
+- Backend: nodeJS, bcryptjs, dotenv, nodemon, express, jwt, cookie-parser, cors, openssl

@@ -1,0 +1,19 @@
+**1. Project Outline**
+Life in Balance is a mock application for booking online yoga classes where teachers can create sessions, edit and delete them.
+Users can view all the upcoming classes and choose to join any that they like.  This application was built using a MERN stack.
+
+**2. Installation**
+- Clone the repository from github in your chosen directory: git clone https://github.com/AlexBrown4020/mern-project.git
+- Migrate into the mern-project folder: cd mern-project
+- In order to acquire the same dependencies and technologies, you need to install them: npm i
+- Make sure you check the readme's included in the api folder and client folder and follow those steps.
+- Create two new terminals, migrate one of each into the different folders: cd api / cd client
+- Now we can run the API server and client side server in both terminals by typing: npm start 
+- You should be able to see the backend API running and also a client front end.
+
+**3. Future Features**
+As the project progresses, I hope to include:
+- Account page
+- Payment method screen
+- Calendar
+- User profile pictures

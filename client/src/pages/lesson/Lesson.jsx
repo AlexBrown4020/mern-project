@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Footer } from '../../components/footer/Footer';
 
@@ -12,6 +12,14 @@ export const Lesson = () => {
   const {data, loading, error} = useFetch(`/lessons/${param.id}`);
   const auth = localStorage.getItem('user');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(auth)
+    if (auth === null) {
+      alert('You must be logged in to see the lesson')
+      navigate('/')
+    }
+});
 
   const deleteLesson = async (id) => {
     let lesson = await fetch(`http://localhost:3000/lessons/${id}`, {

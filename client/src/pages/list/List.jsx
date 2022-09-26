@@ -9,6 +9,9 @@ export const List = () => {
 
     return (
         <div>
+            <div className='mainBanner'>
+
+            </div>
             <div className='mainTitleContainer'>
                 <h2 className='mainTitle'>Upcoming Lessons</h2>
             </div>
@@ -28,14 +31,6 @@ export const List = () => {
                                 <div className='contentBlock'>
                                     <p className='lessonText'>Date: </p> 
                                     <p>{lesson.date.slice(0,10)}</p>
-                                </div>
-                                <div className='contentBlock'>
-                                    <p className='lessonText'>Time:</p> 
-                                    <p>{lesson.date.slice(11,19)}</p>
-                                </div>
-                                <div className='contentBlock'>
-                                    <p className='lessonText'>Description: </p> 
-                                    <p>{lesson.description}</p>
                                 </div>
                                 <div className='contentBlock'>
                                     <p className='lessonText'>Teacher: </p> 

@@ -76,12 +76,6 @@ export const Lesson = () => {
                   }
               </div>
               <div className='contentBlock'>
-                  <p className='lessonText'>Time: </p> 
-                  {
-                    data.date === undefined ? <p>Loading date...</p> : <p>{data.date.slice(11,19)}</p>
-                  }
-              </div>
-              <div className='contentBlock'>
                   <p className='lessonText'>Description: </p> 
                   <p>{data.description}</p>
               </div>

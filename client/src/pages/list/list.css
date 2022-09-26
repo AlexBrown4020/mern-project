@@ -1,7 +1,10 @@
 .lessonList{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border-radius: 2px;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
 }
 
 .lessonContainer {

@@ -16,6 +16,12 @@
 .lessonTitle {
     display: flex;
     justify-content: center;
+    padding: 2px;
+}
+
+.lessonTitle:hover {
+    color:rgb(109, 109, 182);
+    border: 1px solid rgb(204, 228, 253);
 }
 
 .mainTitleContainer {

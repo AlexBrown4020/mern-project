@@ -79,7 +79,7 @@ export const Lesson = () => {
           </div>
           <div className='lessonContent'>
               <div className='contentBlock'>
-                  <p className='lessonText'>Day: </p> 
+                  <p className='lessonText'>Day: </p>
                   {
                     data.date === undefined ? <p>Loading date...</p> : <p>{data.date.slice(0,10)}</p>
                   }

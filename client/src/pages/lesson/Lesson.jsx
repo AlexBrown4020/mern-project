@@ -4,7 +4,6 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Footer } from '../../components/footer/Footer';
 import { Navbar } from '../../components/navbar/Navbar';
 import useFetch from '../../hooks/useFetch';
-import '../list/list.css';
 import './lesson.css';
 
 export const Lesson = () => {
@@ -68,7 +67,9 @@ export const Lesson = () => {
     <div>
       <Navbar/>
       <div className='mainContainer'>
-        <h2>{data.title}</h2>
+        <div className='lessonTitleContainer'>
+          <h2 className='lessonTitle'>{data.title}</h2>
+        </div>
       { loading ? (
         'Loading, please wait'
       ) : (

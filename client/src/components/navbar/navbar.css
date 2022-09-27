@@ -11,7 +11,7 @@
     color:white;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly
 }
 
 .logo{
@@ -20,6 +20,13 @@
     cursor: pointer;
     text-decoration: none;
     font-size: 40px;
+}
+
+.logoImg {
+    max-height: 120px;
+    max-width: 120px;
+    margin-top: 9%;
+    border: 4px solid rgb(44, 44, 145);
 }
 
 .navButton{

@@ -7,9 +7,7 @@ export const Home = () => {
     return (
         <div>
             <Navbar/>
-            <div className='listContainer'>
-                <List />
-            </div>
+            <List />
             <Footer/>
         </div>
     )

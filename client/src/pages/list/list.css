@@ -6,7 +6,7 @@
     flex-direction: row;
 }
 
-.lessonContainer {
+.listContainer {
     display: block;
     flex-direction: column;
     max-width: 40%;

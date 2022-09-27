@@ -34,7 +34,7 @@
     display: flex;
     align-items: center;
     align-content: center;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
 }
 
 .mainTitle {
@@ -50,7 +50,7 @@
 }
 
 .bannerTitle {
-    font-size:xx-large;
+    font-size: xx-large;
     font-family: Arial, Helvetica, sans-serif;
     color:rgb(44, 44, 145)
 }

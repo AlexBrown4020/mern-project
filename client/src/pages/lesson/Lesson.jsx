@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { Footer } from '../../components/footer/Footer';
 
+import { Footer } from '../../components/footer/Footer';
 import { Navbar } from '../../components/navbar/Navbar';
 import useFetch from '../../hooks/useFetch';
-import '../list/list.css';
 import './lesson.css';
 
 export const Lesson = () => {
@@ -68,17 +67,19 @@ export const Lesson = () => {
     <div>
       <Navbar/>
       <div className='mainContainer'>
+        <div className='lessonTitleContainer'>
+          <h2 className='lessonTitle'>{data.title}</h2>
+        </div>
       { loading ? (
         'Loading, please wait'
       ) : (
         <div key={data._id} className='lessonContainer' >
-          <div >
-              <img alt='default placehodler of group stretching' className='lessonImg' src='https://i0.wp.com/www.yogabasics.com/yogabasics2017/wp-content/uploads/2014/12/gentle-yoga-class.jpeg?w=1080&ssl=1'></img>
+          <div className='lessonImg'>
+            <img alt='default placehodler of group stretching' className='lessonImg' src='https://i0.wp.com/www.yogabasics.com/yogabasics2017/wp-content/uploads/2014/12/gentle-yoga-class.jpeg?w=1080&ssl=1'></img>
           </div>
-          <h2>{data.title}</h2>
           <div className='lessonContent'>
               <div className='contentBlock'>
-                  <p className='lessonText'>Day: </p> 
+                  <p className='lessonText'>Day: </p>
                   {
                     data.date === undefined ? <p>Loading date...</p> : <p>{data.date.slice(0,10)}</p>
                   }
@@ -92,17 +93,20 @@ export const Lesson = () => {
                   <p>{data.creator}</p>
               </div>
           </div>
+            { 
+            JSON.parse(auth).isAdmin ?       
+            <div className='lessonManipulate'>       
+              <button className='lessonButton' onClick={()=>deleteLesson(data._id)}>Delete lesson</button>
+              <Link className='lessonButton' to={`update`}> Update Lesson </Link> 
+              <button onClick={() =>handleJoin(data._id, auth.username)} className='lessonButton'>Join lesson</button>
+            </div>
+            : 
+            <div className='lessonManipulate'>
+              <button onClick={() =>handleJoin(data._id, auth.username)} className='lessonButton'>Join lesson</button>
+            </div>
+            }
         </div>
       )}
-      { 
-        JSON.parse(auth).isAdmin ?       
-          <div className='lessonManipulate'>       
-            <button className='lessonButton' onClick={()=>deleteLesson(data._id)}>Delete lesson</button>
-            <Link className='lessonButton' to={`update`}> Update Lesson </Link> 
-            <button onClick={() =>handleJoin(data._id, auth.username)} className='lessonButton'>Join lesson</button>
-          </div>
-          : <button onClick={() =>handleJoin(data._id, auth.username)} className='lessonButton'>Join lesson</button>
-      }
       </div>
       <Footer />
     </div>

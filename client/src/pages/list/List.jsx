@@ -25,7 +25,7 @@ export const List = () => {
                 ) : (
                 <div className='lessonList'>
                     {data.map(lesson => {
-                        return <div key={lesson._id} className='lessonContainer' >
+                        return <div key={lesson._id} className='listContainer' >
                             <div >
                                 <img alt='default placehodler of group stretching' className='lessonImg' src='https://i0.wp.com/www.yogabasics.com/yogabasics2017/wp-content/uploads/2014/12/gentle-yoga-class.jpeg?w=1080&ssl=1'></img>
                             </div>

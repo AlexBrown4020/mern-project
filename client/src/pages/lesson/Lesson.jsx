@@ -108,5 +108,6 @@ export const Lesson = () => {
         </div>
       )}
       </div>
+      <Footer />
     </div>
   )};

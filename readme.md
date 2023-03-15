@@ -1,4 +1,4 @@
-**1. Project Outline**
+# Life in Balance
 Welcome to Life in Balance! This is a current work in progress for an online yoga booking web application.
 
 ## Check out the repo's:
